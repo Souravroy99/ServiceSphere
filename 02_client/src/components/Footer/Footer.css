@@ -1,23 +1,33 @@
-*{
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-.footer{
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
     width: 100%;
     height: 6.8rem;
     background-color: #3d46f9;
     display: flex;
-    justify-content: center ;
-    align-items: center ;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer-NavLink{
+.footer-NavLink {
     color: aliceblue;
-    
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
-.footer-NavLink:hover{
+.footer-NavLink:hover {
     color: rgb(0, 225, 255);
 }
