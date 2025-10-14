@@ -8,7 +8,7 @@ export const Analytics = ()=>{
                     <p>Registered Companies</p>
                 </div>
                 <div className="div1">
-                    <h2>10M+</h2>
+                    <h2>1M+</h2>
                     <p>happy Clients</p>
                 </div>
                 <div className="div1">

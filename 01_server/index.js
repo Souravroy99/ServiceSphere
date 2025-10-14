@@ -22,7 +22,7 @@ Hosted Project Link: https://comprehensive-service-hub-frontend-new.onrender.com
 // Cors ---> Cross-Origin Resource Sharing
 
 const corsOptions = {
-    origin: ["http://localhost:5173", "https://comprehensive-service-hub-frontend-new.onrender.com"],
+    origin: "https://comprehensive-service-hub-frontend-new.onrender.com",
     credentials: true,
 };
 
