@@ -1,12 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
-// import { toast } from "react-toastify";
 
 // Step 1
 export const AuthContext = createContext(); // Context API
 
 // Step 2
 export const AuthProvider = (props) => {
-  const url = "http://localhost:5000"; 
+  
+  const url = "https://servicesphere-backend-n7dx.onrender.com"; 
+  // const url = "http://localhost:5000"; 
 
   const [token, setToken] = useState(localStorage.getItem("token")); // localStorage.getItem('token')
   const [isLoading, setIsLoading] = useState(true);
