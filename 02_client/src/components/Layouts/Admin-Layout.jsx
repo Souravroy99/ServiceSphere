@@ -1,5 +1,5 @@
-import {NavLink, Outlet, useNavigate} from 'react-router-dom';
-import {FaUser , FaRegListAlt , FaHome} from 'react-icons/fa';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { FaUser, FaRegListAlt, FaHome } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
@@ -7,30 +7,28 @@ import { toast } from 'react-toastify';
 
 const AdminLayout = () => {
 
-    const { user, isLoading, isLoggedIn } = useAuth() 
+    const { user, isLoading, isLoggedIn } = useAuth()
     const navigate = useNavigate()
 
-    if(isLoading === true) {
+    if (isLoading === true) {
         return <h1>Loading...</h1>
     }
     else {
-
         console.log("Admin-Layout : ", user)
-        
-        if(isLoggedIn === false) {
-            toast.warning('Login First') ;
+
+        if (isLoggedIn === false) {
+            toast.warning('Login First');
             navigate('/login')
-            return ;
+            return;
         }
 
-        if(user.isAdmin === false) {
-            toast.warning('User is not an admin') ;
+        if (user.isAdmin === false) {
+            toast.warning('User is not an admin');
             console.log("If user is not an admin then, user is unable to visit Admin Panel")
             navigate('/')
-            return ;
+            return;
         }
     }
-    
 
     return (
         <>
@@ -38,19 +36,18 @@ const AdminLayout = () => {
                 <div className="container">
                     <nav>
                         <ul>
-                            <li> <NavLink to='/admin/users'> <FaUser/> Users </NavLink> </li>
-                            <li> <NavLink to='/admin/contacts'> <FaMessage/> Contacts </NavLink> </li>
-                            <li> <NavLink to='/service'> <FaRegListAlt/> Services </NavLink> </li>
-                            <li> <NavLink to='/'> <FaHome/> Home </NavLink> </li>
+                            <li> <NavLink to='/admin/users'> <FaUser /> Users </NavLink> </li>
+                            <li> <NavLink to='/admin/contacts'> <FaMessage /> Messages </NavLink> </li>
+                            {/* <li> <NavLink to='/service'> <FaRegListAlt/> Services </NavLink> </li> */}
+                            {/* <li> <NavLink to='/'> <FaHome/> Home </NavLink> </li> */}
                         </ul>
                     </nav>
                 </div>
             </header>
 
-            <Outlet/>
-
+            <Outlet />
         </>
     )
 }
 
-export default AdminLayout ;
+export default AdminLayout;

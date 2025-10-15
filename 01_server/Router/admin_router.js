@@ -18,7 +18,7 @@ router.route('/users/:id').get(authMiddleware, adminMiddleware, adminController.
 // Update single user by its id
 router.route('/users/update/:id').patch(authMiddleware, adminMiddleware, adminController.updateUserByID) ;
 
-
+ 
 // Delete a specific user by its id
 router.route('/users/delete/:ID').delete(authMiddleware, adminMiddleware, adminController.deleteUserById) ;
 

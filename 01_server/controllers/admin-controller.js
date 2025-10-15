@@ -3,7 +3,7 @@ const Contact = require('../models/contact_model') ;
 
 
 // 1. ************* All User Fetch Logic ************* //
-const getAllUsers = async(req, res) => {
+const getAllUsers = async(req, res, next) => {
     try{
         const users = await User.find().select({password: 0}) ;
 
@@ -20,12 +20,12 @@ const getAllUsers = async(req, res) => {
 
 
 // 2. ************ All Contact Fetch Logic ************ //
-const getAllContactMessages = async(req, res) => {
+const getAllContactMessages = async(req, res, next) => {
     try{
         const contacts = await Contact.find() ;
 
         if(!contacts || contacts.length === 0) {
-            return res.status(404).json({message: "No Messages found"}) ;
+            return res.status(200).json({message: "No Messages found"}) ;
         }
 
         return res.status(200).json(contacts) ;
@@ -33,14 +33,14 @@ const getAllContactMessages = async(req, res) => {
     catch(error){
         next(error) ;
     }
-}
+} 
 
 
 // 3. ************ User Delete Logic ************ //
-const deleteUserById = async(req, res) => {
+const deleteUserById = async(req, res, next) => {
     try {
         const id = req.params.ID ; // I get this 'ID' from URL
-        const deletedUserToken = User.findOne({_id:id}, {token:1}) ;
+        const deletedUserToken = await User.findOne({_id:id}, {token:1}) ;
 
         await User.deleteOne({_id: id}) ; 
         return res.status(200).json({token: deletedUserToken}) ;
@@ -52,7 +52,7 @@ const deleteUserById = async(req, res) => {
 
 
 // 4. ************ Contact Message Delete Logic ************ //
-const deleteContactByID = async(req, res) => {
+const deleteContactByID = async(req, res, next) => {
     try {
         const id = req.params.id ; // I get this 'id' from URL
         await Contact.deleteOne({_id: id}) ; 
@@ -65,7 +65,7 @@ const deleteContactByID = async(req, res) => {
 
  
 // 5. ************ Single User Fetch Logic ************ //
-const getUserByID = async(req, res) => {
+const getUserByID = async(req, res, next) => {
     try{
         const id = req.params.id ;
         const userData = await User.findOne({_id : id}).select({password:0}) ;
@@ -75,11 +75,10 @@ const getUserByID = async(req, res) => {
         next(error) ;
     }
 }
- 
 
 
 // 6. *********** Single User Update Logic *********** //
-const updateUserByID = async(req, res) => {
+const updateUserByID = async(req, res, next) => {
     try{
         const id = req.params.id ;
         const updateUserData = req.body ;
@@ -91,7 +90,5 @@ const updateUserByID = async(req, res) => {
         next(error) ;
     }
 }
-
-
 
 module.exports = { getAllUsers, getAllContactMessages, deleteUserById, deleteContactByID, getUserByID, updateUserByID} ;

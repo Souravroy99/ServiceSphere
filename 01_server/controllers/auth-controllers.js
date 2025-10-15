@@ -13,10 +13,9 @@ const home = async(req,res)=>{
 };
 
 
-
 /*--------------------------------------------Register--------------------------------------------*/
 const register = async(req,res) => {
-    try{    
+    try{   
         const {username, email, phone, password} = req.body ;
  
         // Get the reference of user according to Email.
@@ -43,11 +42,12 @@ const register = async(req,res) => {
 };
 
 
-
 /*---------------------------------------------Login---------------------------------------------*/
 const login = async(req,res) => {
     try{
         const {email, password} = req.body;
+
+        console.log(email, password);
 
         const userExists = await User.findOne({'email': email}) ;
 
@@ -73,15 +73,10 @@ const login = async(req,res) => {
 }; 
 
 
-
 /*--------------------------------User--------------------------------*/ // To send user data for JWT authentication
 const user = async(req, res) => { 
     try {
         const userData = req.user ;
-
-        // console.log("SOURAV ===> I AM IN USER CONTROLLER") ;
-        // console.log(userData) ; 
-
         return res.status(200).json({ userData }) ;
     }
     catch(error) {

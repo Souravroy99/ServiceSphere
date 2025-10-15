@@ -52,10 +52,8 @@ export const AdminUsers = () => {
             });
 
             const data = await response.json() ;
-             
-            if(response.ok) {
-                alert(`Deleted user token: ${data.token} \nyour token : ${token}`) ;
 
+            if(response.ok) {
                 toast.success("User successfully deleted") ;
                 getAllUsersData() ;  // After using this we do not need to reload the page
             }

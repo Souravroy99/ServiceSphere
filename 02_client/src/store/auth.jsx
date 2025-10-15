@@ -6,8 +6,7 @@ export const AuthContext = createContext(); // Context API
 
 // Step 2
 export const AuthProvider = (props) => {
-  const url = "https://comprehensive-service-hub-backend-new.onrender.com";
-  // const url = "http://localhost:4000"; 
+  const url = "http://localhost:5000"; 
 
   const [token, setToken] = useState(localStorage.getItem("token")); // localStorage.getItem('token')
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +14,7 @@ export const AuthProvider = (props) => {
   const [services, setServices] = useState([]);
 
   const storeTokenInLocalStorage = (serverToken) => {
-    setToken(serverToken); // Very Important
+    setToken(serverToken); 
     return localStorage.setItem("token", serverToken);
   };
 

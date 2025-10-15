@@ -16,8 +16,6 @@ const AdminUpdate = () => {
         phone: "",
     });
 
-    console.log("ID : " , id) ;
-
     // Fetching initial information
     const fetchUser = async () => {
         try {

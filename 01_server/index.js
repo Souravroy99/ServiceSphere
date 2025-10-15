@@ -1,4 +1,4 @@
-require('dotenv').config(); // For .env 
+require('dotenv').config(); 
 
 const express = require('express') ;
 const cors = require('cors') ;
@@ -12,18 +12,8 @@ const adminRouter = require('./Router/admin_router.js') ;
 const connectDB = require('./utils/Database.js') ;
 const errorMiddleware = require('./middleware/error_middleware.js') ;
 
-/*
- 
-Hosted Project Link: https://comprehensive-service-hub-frontend-new.onrender.com
-
-*/
-
-
-// Cors ---> Cross-Origin Resource Sharing
-
 const corsOptions = {
-    origin: "https://comprehensive-service-hub-frontend-new.onrender.com",
-    credentials: true,
+    origin: "http://localhost:5173"
 };
 
 app.use(cors(corsOptions)) ;
@@ -33,7 +23,7 @@ app.use('/api/auth', authRouter) ;
 app.use('/api/form', contactRouter) ;
 app.use('/api/data', serviceRouter) ;
 app.use('/api/admin', adminRouter) ;
- 
+
 app.use(errorMiddleware) ;
 
 const Port = process.env.PORT || 4000 ;

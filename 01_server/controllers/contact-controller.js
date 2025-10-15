@@ -10,7 +10,6 @@ const contactForm = async(req,res)=>{
         const status = 422 ;
         const message = 'Message is not delivered' ;
         const extraDetails = err.errors[0].message ;
-        
 
         const error = {
             status,

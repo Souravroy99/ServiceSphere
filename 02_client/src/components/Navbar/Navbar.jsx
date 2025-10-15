@@ -7,7 +7,6 @@ const Navbar = () => {
 
     const { isLoggedIn, isAdmin } = useAuth() ;
 
-
     return (
         <> 
             <header>
