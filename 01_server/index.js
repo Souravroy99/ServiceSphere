@@ -12,8 +12,9 @@ const adminRouter = require('./Router/admin_router.js') ;
 const connectDB = require('./utils/Database.js') ;
 const errorMiddleware = require('./middleware/error_middleware.js') ;
 
+// "http://localhost:5173"
 const corsOptions = {
-    origin: "http://localhost:5173"
+    origin: "https://servicesphere-frontend.onrender.com"
 };
 
 app.use(cors(corsOptions)) ;
