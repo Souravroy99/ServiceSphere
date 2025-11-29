@@ -12,7 +12,7 @@ const Navbar = () => {
             <header>
                 <div className="container">
                     <div className="logo-brand">
-                        <a href="/">Sourav Roy</a>
+                        <a href="/">ServiceSphere</a>
                     </div>
 
                     <nav>
