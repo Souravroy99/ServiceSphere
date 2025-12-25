@@ -3,7 +3,7 @@
 **ServiceSphere** is a full-stack service management web platform that connects users with available services.
 It features secure authentication, dynamic service listings, and admin tools for managing users, services, and messages — built with the **MERN stack** and **Vite** for a fast, modern UI.
 
-🌐 **Live Demo:** [ServiceSphere Frontend (on Render)](https://servicesphere-frontend.onrender.com)
+🌐 **Live Demo:** [ServiceSphere URL](https://servicesphere-frontend.onrender.com)
 
 ---
 
