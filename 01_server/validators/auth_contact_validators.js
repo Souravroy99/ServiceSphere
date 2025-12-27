@@ -30,7 +30,6 @@ const registerSchema = z.object({
 });
 
 
-
 const loginSchema = z.object({
     email: z
         .string({ required_error: "Email is required" })

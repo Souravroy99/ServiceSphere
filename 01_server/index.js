@@ -16,7 +16,7 @@ const errorMiddleware = require('./middleware/error_middleware.js') ;
 const corsOptions = {
     origin: "https://servicesphere-frontend.onrender.com"
 };
-
+ 
 app.use(cors(corsOptions)) ;
 app.use(express.json()) ; 
 
